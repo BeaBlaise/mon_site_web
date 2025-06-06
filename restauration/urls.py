@@ -1,8 +1,7 @@
 from django.contrib import admin
-from django.urls import path, include  # ← include est important
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('commande/', include('commande.urls')),  # ← ceci est essentiel
+    path('', include('commande.urls')),  # ⬅️ inclure commande sans préfixe
 ]
-

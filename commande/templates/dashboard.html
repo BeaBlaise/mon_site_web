@@ -1,0 +1,31 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f5f5;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            margin: auto;
+            width: 60%;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Bienvenue sur le tableau de bord !</h1>
+        <p>Vous êtes connecté avec succès.</p>
+        <a href="{% url 'logout' %}">Se déconnecter</a>
+    </div>
+</body>
+</html>

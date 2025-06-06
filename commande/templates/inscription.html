@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Créer un compte{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background: linear-gradient(135deg, #f9f9f9, #e6e6e6);
+    }
+
+    .registration-form {
+        max-width: 500px;
+        margin: auto;
+        background: white;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        margin-top: 80px;
+    }
+
+    .registration-form h2 {
+        margin-bottom: 25px;
+        color: #343a40;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .form-control {
+        border-radius: 12px;
+    }
+
+    .btn-custom {
+        background-color: #0d6efd;
+        border: none;
+        border-radius: 12px;
+        padding: 10px 20px;
+        width: 100%;
+        font-weight: bold;
+    }
+
+    .btn-custom:hover {
+        background-color: #0b5ed7;
+    }
+
+    .form-text {
+        font-size: 0.875em;
+        color: #6c757d;
+    }
+
+    .already-account {
+        text-align: center;
+        margin-top: 15px;
+    }
+</style>
+
+<div class="registration-form">
+    <h2>Créer un compte</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="mb-3">
+                <label class="form-label">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <div class="form-text">{{ field.help_text }}</div>
+                {% endif %}
+                {% for error in field.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-custom">S'inscrire</button>
+    </form>
+    <div class="already-account">
+        <a href="{% url 'login' %}">Déjà un compte ? Se connecter</a>
+    </div>
+</div>
+{% endblock %}
