@@ -1,2 +1,1 @@
-web: gunicorn restauration.wsgi
-
+web: gunicorn.wsgi
